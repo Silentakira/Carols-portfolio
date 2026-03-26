@@ -47,9 +47,9 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
   // Cursor scale on hover
   const cursorScale = interpolate(
     frame,
-    [[350, 380], [500, 530], [700, 730]],
-    [[1, 1], [1, 1.5], [1.5, 1]],
-    { extrapolateRight: "clamp" }
+    [0, 350, 380, 500, 530, 700, 730, 900],
+    [1, 1, 1.5, 1.5, 1, 1, 1, 1],
+    { extrapolateRight: "clamp", extrapolateLeft: "clamp" }
   );
 
   // Portfolio cards data
