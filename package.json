@@ -6,13 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "remotion:dev": "remotion studio",
+    "remotion:build": "remotion render PortfolioShowcase out/video.mp4",
+    "remotion:preview": "remotion player"
   },
   "dependencies": {
+    "@remotion/cli": "^4.0.441",
+    "@remotion/player": "^4.0.441",
     "framer-motion": "^12.38.0",
     "next": "16.2.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "remotion": "^4.0.441"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
