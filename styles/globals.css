@@ -92,10 +92,15 @@ nav {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--text-primary);
+    color: var(--blush-accent);
     text-decoration: none;
     position: relative;
     padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--dusty-rose);
 }
 
 .nav-link::after {
@@ -104,7 +109,7 @@ nav {
     bottom: 0; left: 0;
     width: 0;
     height: 1px;
-    background-color: var(--blush-accent);
+    background-color: var(--dusty-rose);
     transition: width 0.4s ease;
 }
 
@@ -257,7 +262,7 @@ nav {
     position: absolute;
     bottom: 0; left: 0; right: 0;
     padding: 1.5rem;
-    background: linear-gradient(to top, rgba(255,255,255,0.9), transparent);
+    background: linear-gradient(to top, rgba(244, 143, 177, 0.85), rgba(244, 143, 177, 0.4), transparent);
     transform: translateY(10px);
     opacity: 0;
     transition: transform 0.4s ease, opacity 0.4s ease;
@@ -282,7 +287,7 @@ nav {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--dusty-rose);
+    color: var(--blush-accent);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -434,8 +439,8 @@ textarea:not(:placeholder-shown) ~ label {
 
 button[type="submit"] {
     background: transparent;
-    border: 1px solid var(--text-muted);
-    color: var(--text-primary);
+    border: 1px solid var(--blush-accent);
+    color: var(--blush-accent);
     font-family: var(--font-sans);
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -447,8 +452,8 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    border-color: var(--blush-accent);
-    color: var(--blush-accent);
+    background-color: var(--blush-accent);
+    color: white;
 }
 
 /* ── Footer ── */
