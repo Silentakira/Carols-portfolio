@@ -13,33 +13,32 @@ export default function HighlighterText({ text, className = '' }: HighlighterTex
   const words = text.split(' ');
 
   return (
-    <span className={className}>
+    <span className={className} style={{ display: 'inline-block' }}>
       {words.map((word, index) => {
         const isHighlighted = hoveredIndex !== null && Math.abs(index - hoveredIndex) <= 3;
-        const distance = hoveredIndex !== null ? Math.abs(index - hoveredIndex) : 0;
         const opacity = hoveredIndex !== null ? (isHighlighted ? 1 : 0.2) : 1;
 
         return (
-          <motion.span
+          <span
             key={index}
-            onHoverStart={() => setHoveredIndex(index)}
-            onHoverEnd={() => setHoveredIndex(null)}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
             style={{
-              display: 'inline-block',
+              display: 'inline',
               padding: '2px 4px',
-              margin: '0 2px',
-              borderRadius: '2px',
-              background: isHighlighted
-                ? 'rgba(244, 143, 177, 0.4)'
-                : 'transparent',
+              margin: '0 1px',
               transition: 'all 0.3s ease',
               cursor: 'none',
-              opacity
+              opacity,
+              background: isHighlighted
+                ? 'linear-gradient(180deg, rgba(244, 143, 177, 0.5) 0%, rgba(244, 143, 177, 0.3) 100%)'
+                : 'transparent',
+              backgroundClip: 'padding-box',
+              borderRadius: '2px'
             }}
-            whileHover={{ scale: 1.05 }}
           >
-            {word}
-          </motion.span>
+            {word}{' '}
+          </span>
         );
       })}
     </span>
