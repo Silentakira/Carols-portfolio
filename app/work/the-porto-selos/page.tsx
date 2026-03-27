@@ -9,6 +9,8 @@ const fadeUp = {
 };
 
 export default function PortoSelosSeries() {
+  const photos = Array.from({ length: 12 }, (_, i) => i + 1);
+
   return (
     <main style={{ paddingTop: '8rem', paddingBottom: '4rem', minHeight: '100vh' }}>
       <motion.h1 className="series-header" {...fadeUp}>
@@ -31,21 +33,52 @@ export default function PortoSelosSeries() {
 
       <motion.div
         className="series-grid"
-        style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem', maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '0.75rem',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 2rem'
+        }}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: [0.2, 0.8, 0.2, 1] as const }}
       >
-        <div style={{ gridColumn: 'span 2', gridRow: 'span 2', background: 'linear-gradient(145deg, #f48fb1, #ec407a)', borderRadius: '2px' }}></div>
-        <div style={{ background: 'linear-gradient(145deg, #f8bbd0, #f48fb1)', borderRadius: '2px' }}></div>
-        <div style={{ background: 'linear-gradient(145deg, #fce4ec, #f8bbd0)', borderRadius: '2px' }}></div>
-        <div style={{ background: 'linear-gradient(145deg, #f06292, #d81b60)', borderRadius: '2px' }}></div>
-        <div style={{ background: 'linear-gradient(145deg, #fce4ec, #ffb6c1)', borderRadius: '2px' }}></div>
-        <div style={{ background: 'linear-gradient(145deg, #f8bbd0, #e91e63)', borderRadius: '2px' }}></div>
-        <div style={{ background: 'linear-gradient(145deg, #f48fb1, #f06292)', borderRadius: '2px' }}></div>
-        <div style={{ background: 'linear-gradient(145deg, #fce4ec, #f48fb1)', borderRadius: '2px' }}></div>
-        <div style={{ background: 'linear-gradient(145deg, #f06292, #ec407a)', borderRadius: '2px' }}></div>
-        <div style={{ background: 'linear-gradient(145deg, #f8bbd0, #fce4ec)', borderRadius: '2px' }}></div>
+        {photos.map((photo, index) => (
+          <div
+            key={photo}
+            style={{
+              aspectRatio: '1',
+              background: `linear-gradient(145deg, ${[
+                '#f48fb1, #ec407a',
+                '#f8bbd0, #f48fb1',
+                '#fce4ec, #f8bbd0',
+                '#f06292, #d81b60',
+                '#fce4ec, #f06292',
+                '#f8bbd0, #e91e63',
+                '#f48fb1, #f06292',
+                '#fce4ec, #f48fb1',
+                '#f06292, #ec407a',
+                '#f8bbd0, #fce4ec',
+                '#e91e63, #d81b60',
+                '#f48fb1, #fce4ec'
+              ][index % 12]})`,
+              border: '1px solid rgba(244, 143, 177, 0.2)',
+              borderRadius: '2px',
+              position: 'relative',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'rgba(255, 255, 255, 0.7)',
+              fontSize: '0.75rem',
+              fontWeight: '300',
+              letterSpacing: '0.05em'
+            }}
+          >
+            {photo}
+          </div>
+        ))}
       </motion.div>
     </main>
   );
