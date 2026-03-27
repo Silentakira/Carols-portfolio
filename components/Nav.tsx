@@ -2,12 +2,23 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent, useTransform } from 'framer-motion';
 
 export default function Nav() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    if (latest > previous && latest > 100) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   const links = [
     { href: '/work/para-ver', label: 'Para ver' },
@@ -20,7 +31,12 @@ export default function Nav() {
 
   return (
     <>
-      <nav className="md:px-16 px-6">
+      <motion.nav
+        className="md:px-16 px-6"
+        initial={{ y: 0 }}
+        animate={{ y: hidden ? '-100%' : 0 }}
+        transition={{ duration: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
+      >
         <Link href="/" className="nav-brand hover-target" onClick={() => setIsOpen(false)}>
           <svg className="bow-icon" viewBox="0 0 24 24">
             <path d="M12 11C10.5 8.5 7.5 7.5 5.5 8.5C3.5 9.5 3 12.5 5 14L12 11Z" />
@@ -58,7 +74,7 @@ export default function Nav() {
             className="w-6 h-[2px] bg-[var(--text-primary)] block"
           />
         </button>
-      </nav>
+      </motion.nav>
 
       {/* Mobile Drawer */}
       <AnimatePresence>

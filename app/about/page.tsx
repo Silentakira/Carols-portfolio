@@ -1,7 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import LangToggle from '@/components/LangToggle';
 
 const fadeUp = {
@@ -11,20 +10,10 @@ const fadeUp = {
 };
 
 export default function AboutPage() {
-  const photoRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: photoRef,
-    offset: ['start end', 'end start']
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.9]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
-
   return (
     <main className="pt-32 pb-16 min-h-screen">
       <section id="about" style={{ maxWidth: '900px', margin: '0 auto', padding: '0 2rem' }}>
         <motion.div
-          ref={photoRef}
           style={{
             width: '300px',
             height: '300px',
@@ -34,14 +23,12 @@ export default function AboutPage() {
             border: '3px solid rgba(244, 143, 177, 0.3)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            scale,
-            rotate
+            justifyContent: 'center'
           }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-          whileHover={{ scale: 1.05, rotate: 0, borderColor: 'rgba(244, 143, 177, 0.6)' }}
+          initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ delay: 0.3, duration: 1, ease: [0.2, 0.8, 0.2, 1] }}
+          whileHover={{ scale: 1.05, rotate: 5, borderColor: 'rgba(244, 143, 177, 0.6)' }}
         >
           <motion.span
             style={{
@@ -75,20 +62,17 @@ export default function AboutPage() {
               y: '-50%',
               fontSize: 'clamp(4rem, 10vw, 8rem)',
               fontWeight: '200',
-              color: 'transparent',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              backgroundImage: 'linear-gradient(135deg, rgba(244, 143, 177, 0.1) 0%, rgba(244, 143, 177, 0.05) 100%)',
+              color: 'rgba(244, 143, 177, 0.08)',
               pointerEvents: 'none',
               zIndex: -1,
               whiteSpace: 'nowrap'
             }}
             animate={{
-              x: ['-50%', '-48%', '-50%'],
-              y: ['-50%', '-52%', '-50%']
+              x: ['-50%', '-48%', '-50%', '-52%', '-50%'],
+              y: ['-50%', '-52%', '-48%', '-52%', '-50%']
             }}
             transition={{
-              duration: 6,
+              duration: 8,
               repeat: Infinity,
               ease: 'easeInOut'
             }}

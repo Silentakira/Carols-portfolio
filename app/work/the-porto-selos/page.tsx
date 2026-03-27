@@ -1,7 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -10,19 +9,10 @@ const fadeUp = {
 };
 
 export default function PortoSelosSeries() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start']
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-
   const photos = Array.from({ length: 12 }, (_, i) => i + 1);
 
   return (
-    <main style={{ paddingTop: '8rem', paddingBottom: '4rem', minHeight: '150vh' }}>
+    <main style={{ paddingTop: '8rem', paddingBottom: '4rem', minHeight: '100vh' }}>
       <motion.h1 className="series-header" {...fadeUp}>
         The Porto Selos
       </motion.h1>
@@ -52,7 +42,6 @@ export default function PortoSelosSeries() {
       </motion.div>
 
       <motion.div
-        ref={ref}
         className="series-grid"
         style={{
           display: 'grid',
@@ -60,9 +49,7 @@ export default function PortoSelosSeries() {
           gap: '0.75rem',
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: '0 2rem',
-          y,
-          opacity
+          padding: '0 2rem'
         }}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -71,14 +58,14 @@ export default function PortoSelosSeries() {
         {photos.map((photo, index) => (
           <motion.div
             key={photo}
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
               delay: 0.8 + (index * 0.05),
               duration: 0.6,
               ease: [0.2, 0.8, 0.2, 1]
             }}
-            whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 1 : -1 }}
+            whileHover={{ scale: 1.08, rotate: index % 2 === 0 ? 2 : -2, zIndex: 10 }}
             style={{
               aspectRatio: '1',
               background: `linear-gradient(145deg, ${[
@@ -101,10 +88,6 @@ export default function PortoSelosSeries() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'rgba(255, 255, 255, 0.7)',
-              fontSize: '0.75rem',
-              fontWeight: '300',
-              letterSpacing: '0.05em',
               cursor: 'none'
             }}
           >
@@ -112,6 +95,7 @@ export default function PortoSelosSeries() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 + (index * 0.05) }}
+              style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.75rem', fontWeight: '300', letterSpacing: '0.05em' }}
             >
               {photo}
             </motion.span>
