@@ -612,6 +612,54 @@ nav {
     margin-bottom: 3rem;
 }
 
+/* ── Series Description (Bilingual) ── */
+.series-description {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(252, 228, 236, 0.3) 0%, rgba(244, 143, 177, 0.08) 100%);
+    border: 1px solid rgba(244, 143, 177, 0.15);
+    border-radius: 8px;
+    position: relative;
+}
+
+.series-description::before {
+    content: '✦';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-color);
+    padding: 0 1rem;
+    color: var(--blush-accent);
+    font-size: 1.5rem;
+}
+
+.bilingual-text {
+    margin: 0;
+    padding: 0;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.lang-en, .lang-es {
+    display: block;
+}
+
+.lang-en {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.lang-es {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
 /* ── About ── */
 #about {
     padding: 8rem 4rem;

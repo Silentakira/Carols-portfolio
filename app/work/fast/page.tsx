@@ -14,11 +14,26 @@ export default function FastSeries() {
       <motion.h1 className="series-header" {...fadeUp}>
         Fast
       </motion.h1>
-      <motion.div 
+
+      <motion.div
+        className="series-description"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
+        <p className="bilingual-text">
+          <span className="lang-en">[EN] The project explores the solitude of a displaced ritual: the experience of Ramadan in a non-Muslim country. As a photographer, the starting point is a sense of wonder. My gaze is shaped by a catholic upbringing, where the sacred is understood through the opulence of gold and the weight of guilt. In Waleed's practice, I do not find those structures; rather, I encounter daily rituals attuned to the changing light of the day and a silent will that endures far from Pakistan.</span>
+        </p>
+        <p className="bilingual-text">
+          <span className="lang-es">[ES] El proyecto explora la soledad de un ritual desplazado: la experiencia del Ramadán en un país no musulmán. Como fotógrafa, el punto de partida es un sentido de asombro. Mi mirada está moldeada por una educación católica, donde lo sagrado se entiende a través de la opulencia del oro y el peso de la culpa. En la práctica de Waleed no encuentro esas estructuras; más bien, me encuentro con rituales cotidianos en sintonía con la luz cambiante del día y una voluntad silenciosa que perdura lejos de Pakistán.</span>
+        </p>
+      </motion.div>
+
+      <motion.div
         className="series-grid series-grid-3x3"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] as const }}
+        transition={{ duration: 0.8, delay: 0.6, ease: [0.2, 0.8, 0.2, 1] as const }}
       >
         <div style={{ gridColumn: 'span 2', gridRow: 'span 2', background: 'linear-gradient(145deg, #f8bbd0, #f48fb1)', borderRadius: '2px' }}></div>
         <div style={{ gridColumn: '3', gridRow: '1', background: 'linear-gradient(145deg, #f48fb1, #ec407a)', borderRadius: '2px' }}></div>
