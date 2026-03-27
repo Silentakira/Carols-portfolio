@@ -1,7 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -39,7 +38,7 @@ export default function RuaSeries() {
           transition={{ delay: 0.7, duration: 0.8 }}
         >
           <span className="lang-es">[ES] Una colección de fotografía callejera que captura la esencia de la vida urbana. A través de estas imágenes, exploro la poesía de los momentos cotidianos — las interacciones efímeras, la soledad tranquila y la energía vibrante que pulsa por las calles de la ciudad.</span>
-        </p>
+        </motion.p>
       </motion.div>
 
       <motion.div
