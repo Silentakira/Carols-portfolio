@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import LangToggle from '@/components/LangToggle';
+import HighlighterText from '@/components/HighlighterText';
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -50,7 +51,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          style={{ position: 'relative' }}
+          style={{ position: 'relative', marginBottom: '2rem' }}
         >
           Carolina Celedón
           <motion.div

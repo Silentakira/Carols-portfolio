@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import HighlighterText from '@/components/HighlighterText';
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -10,6 +11,10 @@ const fadeUp = {
 
 export default function RuaSeries() {
   const photos = Array.from({ length: 10 }, (_, i) => i + 1);
+
+  const enText = "[EN] A collection of street photography capturing the essence of urban life. Through these images, I explore the poetry of everyday moments — the fleeting interactions, the quiet solitude, and the vibrant energy that pulses through the city streets.";
+
+  const esText = "[ES] Una colección de fotografía callejera que captura la esencia de la vida urbana. A través de estas imágenes, exploro la poesía de los momentos cotidianos — las interacciones efímeras, la soledad tranquila y la energía vibrante que pulsa por las calles de la ciudad.";
 
   return (
     <main style={{ paddingTop: '8rem', paddingBottom: '4rem', minHeight: '100vh' }}>
@@ -28,16 +33,18 @@ export default function RuaSeries() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
+          style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: '1.8' }}
         >
-          <span className="lang-en">[EN] A collection of street photography capturing the essence of urban life. Through these images, I explore the poetry of everyday moments — the fleeting interactions, the quiet solitude, and the vibrant energy that pulses through the city streets.</span>
+          <HighlighterText text={enText} />
         </motion.p>
         <motion.p
           className="bilingual-text"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
+          style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: '1.8', color: 'var(--text-muted)', fontStyle: 'italic' }}
         >
-          <span className="lang-es">[ES] Una colección de fotografía callejera que captura la esencia de la vida urbana. A través de estas imágenes, exploro la poesía de los momentos cotidianos — las interacciones efímeras, la soledad tranquila y la energía vibrante que pulsa por las calles de la ciudad.</span>
+          <HighlighterText text={esText} />
         </motion.p>
       </motion.div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import HighlighterText from '@/components/HighlighterText';
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -9,6 +10,10 @@ const fadeUp = {
 };
 
 export default function FastSeries() {
+  const enText = "[EN] The project explores the solitude of a displaced ritual: the experience of Ramadan in a non-Muslim country. As a photographer, the starting point is a sense of wonder. My gaze is shaped by a catholic upbringing, where the sacred is understood through the opulence of gold and the weight of guilt. In Waleed's practice, I do not find those structures; rather, I encounter daily rituals attuned to the changing light of the day and a silent will that endures far from Pakistan.";
+
+  const esText = "[ES] El proyecto explora la soledad de un ritual desplazado: la experiencia del Ramadán en un país no musulmán. Como fotógrafa, el punto de partida es un sentido de asombro. Mi mirada está moldeada por una educación católica, donde lo sagrado se entiende a través de la opulencia del oro y el peso de la culpa. En la práctica de Waleed no encuentro esas estructuras; más bien, me encuentro con rituales cotidianos en sintonía con la luz cambiante del día y una voluntad silenciosa que perdura lejos de Pakistán.";
+
   return (
     <main style={{ paddingTop: '8rem', paddingBottom: '4rem', minHeight: '100vh' }}>
       <motion.h1 className="series-header" {...fadeUp}>
@@ -21,12 +26,24 @@ export default function FastSeries() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
       >
-        <p className="bilingual-text">
-          <span className="lang-en">[EN] The project explores the solitude of a displaced ritual: the experience of Ramadan in a non-Muslim country. As a photographer, the starting point is a sense of wonder. My gaze is shaped by a catholic upbringing, where the sacred is understood through the opulence of gold and the weight of guilt. In Waleed's practice, I do not find those structures; rather, I encounter daily rituals attuned to the changing light of the day and a silent will that endures far from Pakistan.</span>
-        </p>
-        <p className="bilingual-text">
-          <span className="lang-es">[ES] El proyecto explora la soledad de un ritual desplazado: la experiencia del Ramadán en un país no musulmán. Como fotógrafa, el punto de partida es un sentido de asombro. Mi mirada está moldeada por una educación católica, donde lo sagrado se entiende a través de la opulencia del oro y el peso de la culpa. En la práctica de Waleed no encuentro esas estructuras; más bien, me encuentro con rituales cotidianos en sintonía con la luz cambiante del día y una voluntad silenciosa que perdura lejos de Pakistán.</span>
-        </p>
+        <motion.p
+          className="bilingual-text"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: '1.8' }}
+        >
+          <HighlighterText text={enText} />
+        </motion.p>
+        <motion.p
+          className="bilingual-text"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+          style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: '1.8', color: 'var(--text-muted)', fontStyle: 'italic' }}
+        >
+          <HighlighterText text={esText} />
+        </motion.p>
       </motion.div>
 
       <motion.div

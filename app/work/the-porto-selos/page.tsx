@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import HighlighterText from '@/components/HighlighterText';
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -11,6 +12,10 @@ const fadeUp = {
 export default function PortoSelosSeries() {
   const topPhotos = Array.from({ length: 4 }, (_, i) => i + 1);
   const bottomPhotos = Array.from({ length: 8 }, (_, i) => i + 5);
+
+  const enText = "[EN] The Porto Selos is a personal currency of 12 stamp-sized photographs created in response to the experience of migration. Born from an exchange of letters with a collector friend, this series replaces official imagery with the visual clichés that define the Porto I inhabit. Mounted in a 20x20 archival frame, the collection elevates the fleeting transit of a stranger into a formal archive of belonging.";
+
+  const esText = "[ES] The Porto Selos es una moneda personal compuesta por 12 fotografías en formato de estampilla, creada en respuesta a la experiencia de la migración. Nacida de un intercambio de cartas con una amiga coleccionista, esta serie sustituye la imaginería oficial por los clichés visuales que definen el Porto que habito. Montada en una moldura de 20x20, la colección eleva el tránsito fugaz de una extranjera a un archivo formal de pertenencia.";
 
   return (
     <main style={{ paddingTop: '8rem', paddingBottom: '4rem', minHeight: '100vh' }}>
@@ -72,7 +77,7 @@ export default function PortoSelosSeries() {
         ))}
       </motion.div>
 
-      {/* Text Description */}
+      {/* Text Description with Highlighter Effect */}
       <motion.div
         className="series-description"
         initial={{ opacity: 0 }}
@@ -84,16 +89,18 @@ export default function PortoSelosSeries() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
+          style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: '1.8' }}
         >
-          <span className="lang-en">[EN] The Porto Selos is a "personal currency" of 12 stamp-sized photographs created in response to the experience of migration. Born from an exchange of letters with a collector friend, this series replaces official imagery with the visual clichés that define the Porto I inhabit. Mounted in a 20x20 archival frame, the collection elevates the fleeting transit of a stranger into a formal archive of belonging.</span>
+          <HighlighterText text={enText} />
         </motion.p>
         <motion.p
           className="bilingual-text"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.8 }}
+          style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)', lineHeight: '1.8', color: 'var(--text-muted)', fontStyle: 'italic' }}
         >
-          <span className="lang-es">[ES] The Porto Selos es una "moneda personal" compuesta por 12 fotografías en formato de estampilla, creada en respuesta a la experiencia de la migración. Nacida de un intercambio de cartas con una amiga coleccionista, esta serie sustituye la imaginería oficial por los clichés visuales que definen el Porto que habito. Montada en una moldura de 20x20, la colección eleva el tránsito fugaz de una extranjera a un archivo formal de pertenencia.</span>
+          <HighlighterText text={esText} />
         </motion.p>
       </motion.div>
 
