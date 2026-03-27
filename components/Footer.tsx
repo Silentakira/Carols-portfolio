@@ -5,13 +5,14 @@ import MagneticButton from './MagneticButton';
 export default function Footer() {
   const socialLinks = [
     {
-      name: 'Instagram',
-      url: 'https://instagram.com',
+      name: 'Carolina Porto Photography',
+      url: 'https://carolinaportophotography.com',
       icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <path d="M12 11C10.5 8.5 7.5 7.5 5.5 8.5C3.5 9.5 3 12.5 5 14L12 11Z" />
+          <path d="M12 11C13.5 8.5 16.5 7.5 18.5 8.5C20.5 9.5 21 12.5 19 14L12 11Z" />
+          <path d="M11.5 11.5L9 19" />
+          <path d="M12.5 11.5L15 19" />
         </svg>
       ),
     },
