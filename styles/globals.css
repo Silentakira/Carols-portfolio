@@ -7,8 +7,8 @@
     --dusty-rose: #d81b60;
     --text-primary: #333333;
     --text-muted: #888888;
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Jost', sans-serif;
+    --font-serif: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+    --font-sans: 'Jost', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
 * {

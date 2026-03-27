@@ -10,12 +10,18 @@ import PageLoader from '@/components/PageLoader';
 const jost = Jost({
   subsets: ['latin'],
   variable: '--font-sans',
+  display: 'swap',
+  preload: true,
+  weight: ['300', '400', '500'],
 });
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   style: ['normal', 'italic'],
   variable: '--font-serif',
+  display: 'swap',
+  preload: true,
+  weight: ['400', '500'],
 });
 
 export const metadata: Metadata = {
