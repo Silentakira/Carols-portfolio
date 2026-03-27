@@ -15,7 +15,7 @@ export default function HighlighterText({ text, className = '' }: HighlighterTex
   return (
     <span className={className} style={{ display: 'inline-block' }}>
       {words.map((word, index) => {
-        const isHighlighted = hoveredIndex !== null && Math.abs(index - hoveredIndex) <= 1;
+        const isHighlighted = hoveredIndex !== null && index >= hoveredIndex - 1 && index <= hoveredIndex + 3;
         const opacity = hoveredIndex !== null ? (isHighlighted ? 1 : 0.2) : 1;
 
         return (
