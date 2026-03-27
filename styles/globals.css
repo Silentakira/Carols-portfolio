@@ -396,6 +396,8 @@ nav {
     text-align: center;
     padding-top: 5rem;
     position: relative;
+    overflow-x: hidden;
+    min-width: 320px;
 }
 
 .hero-title {
@@ -405,19 +407,22 @@ nav {
     font-weight: 400;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
-    display: flex;
-    overflow: hidden;
-    flex-wrap: nowrap;
+    display: inline-flex;
+    overflow: visible;
+    flex-wrap: nowrap !important;
     flex-direction: row;
     justify-content: center;
+    align-items: baseline;
     padding: 0 2rem;
     max-width: 100%;
     line-height: 1.1;
+    white-space: nowrap;
 }
 
 .hero-title span {
-    display: inline-flex;
+    display: inline-block !important;
     flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .hero-subtitle {
