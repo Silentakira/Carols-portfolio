@@ -22,13 +22,11 @@ export default function WorkPage() {
         transition={{ duration: 0.8, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] as const }}
       >
         <div className="grid-container home-grid">
-          <PhotoCard title="Para ver" href="/work/para-ver" itemClass="item-1" />
-          <PhotoCard title="Fast" href="/work/fast" itemClass="item-2" />
-          <PhotoCard title="Rua" href="/work/rua" itemClass="item-3" />
-          <PhotoCard title="The Porto Selos" href="/work/the-porto-selos" itemClass="item-4" />
-          <PhotoCard title="Para ver II" href="/work/para-ver" itemClass="item-5" />
-          <PhotoCard title="Rua Fragments" href="/work/rua" itemClass="item-6" />
-          <PhotoCard title="Fast Motion" href="/work/fast" itemClass="item-7" />
+          <PhotoCard title="Fast" href="/work/fast" itemClass="item-1" />
+          <PhotoCard title="Rua" href="/work/rua" itemClass="item-2" />
+          <PhotoCard title="The Porto Selos" href="/work/the-porto-selos" itemClass="item-3" />
+          <PhotoCard title="Rua Fragments" href="/work/rua" itemClass="item-4" />
+          <PhotoCard title="Fast Motion" href="/work/fast" itemClass="item-5" />
         </div>
       </motion.section>
     </main>
