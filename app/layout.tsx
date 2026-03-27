@@ -4,6 +4,8 @@ import '../styles/globals.css';
 import Cursor from '@/components/Cursor';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import FloatingShapes from '@/components/FloatingShapes';
+import PageLoader from '@/components/PageLoader';
 
 const jost = Jost({
   subsets: ['latin'],
@@ -28,6 +30,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jost.variable} ${playfair.variable}`}>
       <body suppressHydrationWarning>
+        <PageLoader />
+        <FloatingShapes />
         <Cursor />
         <Nav />
         {children}
