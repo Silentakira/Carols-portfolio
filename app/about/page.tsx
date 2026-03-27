@@ -11,7 +11,7 @@ const fadeUp = {
 
 export default function AboutPage() {
   return (
-    <main className="pt-32 pb-16 min-h-screen">
+    <main className="pt-48 pb-16 min-h-screen">
       <section id="about" style={{ maxWidth: '900px', margin: '0 auto', padding: '0 2rem' }}>
         <motion.div
           style={{
